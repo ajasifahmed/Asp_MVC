@@ -1,0 +1,12 @@
+﻿@model List<WebApplication2_MVC.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index-PRODUCTS</h2>
+@{ 
+    foreach (var i in Model)
+    {
+        Html.RenderPartial("_ProductPartialView", i);
+    }
+}

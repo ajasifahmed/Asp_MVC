@@ -1,0 +1,50 @@
+﻿@model WebApplication4_DatabaseFirst.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.stdname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stdname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stdgender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stdgender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stdage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stdage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stdclass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stdclass)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.stdid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

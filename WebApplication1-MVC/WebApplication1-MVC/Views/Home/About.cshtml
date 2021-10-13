@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+<h2>About</h2>
+@Html.Partial("_LoginPartialView")
+<p>Via variable</p>
+@{ 
+    var mypartial = @Html.Partial("_LoginPartialView");
+    mypartial = new MvcHtmlString("<h2>appended heading</h2>" + mypartial.ToString());
+}
+@mypartial

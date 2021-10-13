@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AJAX_MVC.Models.Employee>
+
+@{
+    ViewBag.Title = "Fetch";
+}
+
+<h2>Fetch</h2>
+<div id="div1">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.salary)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.designation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salary)
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                @Ajax.ActionLink("Load more", "Fetch", "Home",
+    new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId="div1",
+    }, new {@class="btn btn-info"})
+            </td>
+        </tr>
+
+    </table>
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>

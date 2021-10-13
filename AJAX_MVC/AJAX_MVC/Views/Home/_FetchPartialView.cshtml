@@ -1,0 +1,74 @@
+﻿@model IEnumerable<AJAX_MVC.Models.Employee>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salary)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.salary)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    @{
+        if (Convert.ToInt32(Session["number"]) > Model.Count())
+        {
+        }
+        else
+        {
+            <tr>
+                <td>
+                    @Ajax.ActionLink("Load more", "Fetch", "Home",
+        new AjaxOptions()
+        {
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId="div1",
+        }, new {@class="btn btn-info"})
+                </td>
+            </tr>
+        }
+
+    }
+
+
+
+
+
+</table>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>

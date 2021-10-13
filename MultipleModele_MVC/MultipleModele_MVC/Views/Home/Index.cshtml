@@ -1,0 +1,50 @@
+﻿@using MultipleModele_MVC.Models
+@model MultipleModels
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>people1</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in ViewBag.p1)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.AGE</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<h2>peopl2</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in ViewBag.p2)
+        {
+
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+            </tr>
+        }
+    </tbody>
+</table>
